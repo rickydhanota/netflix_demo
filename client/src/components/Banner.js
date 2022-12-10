@@ -2,10 +2,13 @@ import React, {useState, useEffect} from 'react';
 import styles from "./Banner.module.css";
 import axios from "../axios";
 import requests from '../Request';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../features/userSlice';
 
 const Banner = (props) => {
 
     const [movie, setMovie] = useState([]);
+    const user = useSelector(selectUser);
 
     useEffect(()=> {
         async function fetchData() {
@@ -21,7 +24,8 @@ const Banner = (props) => {
         fetchData();
     }, []);
 
-    console.log(movie);
+    // console.log(movie);
+    console.log("This is user", user);
 
     const truncate = (string, n) => {
         return string?.length > n ? string.substr(0, n - 1) + "..." : string;

@@ -17,7 +17,7 @@ const Row = (props) => {
         fetchData();
     }, [fetchUrl]);
 
-    console.log(movies);
+    // console.log(movies);
 
     return (
         <div className={styles.row}>
